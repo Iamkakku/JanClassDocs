@@ -1,0 +1,14 @@
+write a query to fetch employee firstname and salary together using alias name EmpSalary
+eg: Allen-5000
+Steve-4000
+
+Write a query to get all the employers who are IT programmers (job id= IT_PROG) and whose salary>20000
+
+write a query to find length of fullname(firstname+lastname) of all employees
+
+write a query to get employees sorted by manager_id
+
+write a query to fetch employees whose last_name ends with 'en'.
+
+Send answers to training@whitebox-learning.com
+

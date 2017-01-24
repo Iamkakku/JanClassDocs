@@ -1,0 +1,94 @@
+Gets all the records from employees table
+Select * from hr.employees;
+Get employees whose salary is greater than 9000
+Select * from hr.employees where salary > 9000;
+
+Get unique details w.r.to  last_name details from employees table
+select  distinct last_name from hr.employees;
+
+
+ Fetch the last_name,first_name and commision_pct of employees whose commision_pct is not null
+Select last_name,first_name,commission_pct from hr.employees where commission_pct is null;
+
+get all employee details whose first name is Alexander
+Select * from hr.employees where first_name='Alexander';	
+
+ get last_name,salary and salary with an increment of 300
+SELECT last_name, salary, salary+300 "IncrementedSalary" FROM hr.employees;
+
+get full name of the employee
+select first_name || ' ' || last_name as "FullName" from hr.employees;
+
+select  first_name || ' email is ' || email  EmployeeEmail from hr.employees
+
+select first_name,salary, (salary+500)*2 as NewSalary from hr.employees;
+SELECT department_name || q'[ it's assigned Manager Id: ]' || manager_id  AS "Department and Manager" FROM hr.departments;
+describe hr.employees;
+
+get all employees whose last_name is not king
+
+select * from hr.employees where last_name <> 'King';
+
+get all employees who have salary greater than 5000 and less than 30000
+select * from hr.employees where salary >= 5000 and salary <= 30000
+select * from hr.employees where salary between 5000  and  30000;
+
+
+get all emplyers who joined before 2005 - date default format is dd-mon-rr
+select * from hr.employees where hire_date < '1-Jan-05'
+
+select * from hr.employees where hire_date between '1-Jan-05' and '1-Jan-07'
+
+ get all employers who belong to departments 90,60 and 100
+select * from hr.employees where department_id in (90,60,100);
+
+Get all employees whose last_name ends with ng
+select * from hr.employees where last_name like '%in%'
+
+and/or condition
+SELECT employee_id, last_name, job_id, salary FROM hr.employees WHERE salary >=10000 oR job_id LIKE '%MAN%' ;
+
+SELECT last_name, job_id
+
+FROM hr.employees
+
+WHERE job_id
+
+NOT IN ('IT_PROG', 'ST_CLERK', 'SA_REP') ;
+
+
+select * from hr.employees order by salary desc,department_id asc;
+
+
+select upper(first_name),initcap(last_name) from hr.employees;
+
+get all  employers whose last name is grant
+select * from hr.employees where upper(last_name)='GRANT';
+
+
+select concat(first_name,last_name) as fullname from hr.employees;
+
+select substr(first_name, 2) from hr.employees;
+
+select first_name, instr(first_name, 'E') from hr.employees;
+
+select trim('E' from first_name) from hr.employees
+
+select length(trim(' ' from '     helllo     ')) from dual;
+
+select length('helloworld') from dual;
+
+select * from hr.employees order by salary , manager_id desc
+
+
+
+
+
+
+
+
+
+
+
+
+
