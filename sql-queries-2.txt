@@ -1,0 +1,53 @@
+nvl(expr1,expr2) - if expr 1 is null result is expr2, if expr1 is not null result is expr1
+select salary, commission_pct, salary+(salary*nvl(commission_pct,0) ) IncSalary from hr.employees;
+
+nvl2(expr1,expr2,expr3) - if expr 1 is null result is expr3, if expr1 is not null result is expr2
+select commission_pct , nvl2(commission_pct,(salary+commission_pct), 0) from hr.employees;
+
+nullif(expr1,expr2)- if epr1 and expr2 are equal result is null
+select first_name,last_name,length(first_name),length(last_name), nullif(length(first_name),length(last_name)) result from hr.employees;
+
+
+coalesce(expr1,expr2...exprn) - result is first not null value of all expressions
+select manager_id, commission_pct,salary,coalesce(manager_id,commission_pct,-1) from hr.employees;
+
+SELECT last_name, job_id, salary,
+
+CASE job_id WHEN 'IT_PROG' THEN 1.10*salary
+
+WHEN 'ST_CLERK' THEN 1.15*salary
+
+WHEN 'SA_REP' THEN 1.20*salary
+
+ELSE salary END "REVISED_SALARY"
+
+FROM hr.employees;
+
+SELECT last_name, job_id, salary,
+
+DECODE(job_id, 'IT_PROG', 1.10*salary,
+
+'ST_CLERK', 1.15*salary,
+
+'SA_REP', 1.20*salary,
+
+salary)
+
+REVISED_SALARY
+
+FROM hr.employees;
+
+
+find max salaried employee details from employees table
+
+3000,4000,5000 - max is 5000- group functions- act on group of rows and give single result for multiple
+select max(salary) from hr.employees;
+
+select * from hr.employees where salary in (select max(salary) from hr.employees);
+
+ no of employers in department 50
+select count(*) from hr.employees where department_id=50;
+
+ get max salary according to each job id
+select max(salary),department_id from hr.employees group by department_id;
+
