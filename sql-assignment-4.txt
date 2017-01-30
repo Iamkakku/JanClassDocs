@@ -1,0 +1,9 @@
+
+
+query to find min sal under each job category in specific  department.
+
+fetch employees whose salary is less than salaries of  employee with job_id IT_PROG
+
+write a query to select first_name and hiredate of employees who were hired after employee Steven.
+
+query to find employee details of first highest salaried person.

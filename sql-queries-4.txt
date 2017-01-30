@@ -1,0 +1,135 @@
+-- get all employees who have same job_id as the employee with id 141 and salary is same as employeee with id 143
+
+--select * from hr.employees where job_id = (select job_id from hr.employees where employee_id=141)
+--and salary=(select salary from hr.employees where employee_id=143);
+--write a query to get employee firstname, department id, salary of all employees who have same salary as the min salary of  department with id 50
+
+--select first_name,last_name,department_id,salary from hr.employees where salary=
+--(select min(salary) from hr.employees where department_id=50);
+
+--write a query to get employee firstname, department id, salary of all employees who have same salary as the min salary of  department with name IT
+
+--select first_name,last_name,department_id,salary from hr.employees where salary=
+--(select min(salary) from hr.employees where department_id=(select department_id from hr.departments where department_name='IT'));
+
+--write a query to find departments whose min salary is greater than min salary of sales department
+
+--select department_id,min(salary) from hr.employees group by department_id having min(salary) > 
+--(select min(salary) from hr.employees where department_id=(select department_id from hr.departments where department_name='Sales'));
+
+--query to find employees who report to king or employees who have king as manager
+
+--select * from hr.employees where manager_id = (select employee_id from hr.employees where last_name='King' and manager_id is null)
+
+--query to find top salaried employee details in each department.
+ 
+--select * from hr.employees where (department_id,salary) in
+--(select department_id,max(salary) from hr.employees group by department_id);
+
+--query to find employee details of second highest salaried person.
+
+--select * from hr.employees where salary = (select max(salary) from hr.employees where salary not in (select max(salary) from hr.employees))
+
+
+-- query to fetch first highest salary from employees table
+--select max(salary) from hr.employees;
+-- query to fetch second highest salary from employees table
+--select max(salary) from hr.employees where salary not in (select max(salary) from hr.employees);
+
+
+--query to find top 5 highest salaries
+select * from (select distinct salary from hr.employees order by salary desc) where rownum<=5;
+
+
+-- query to get first_name,employee_id, salary of employees whose salary is within top 5 highest salaries
+select first_name,employee_id,salary from hr.employees where salary in (select * from (select distinct salary from hr.employees order by salary desc) where rownum<=5);
+
+
+-- Avoid this type of syntax for rownum- This is wrong way to use rownum
+--select distinct salary from hr.employees where rownum<=5 order by salary desc
+
+--6th - 10th highest sal
+select * from (select distinct salary from hr.employees where salary not in(
+select * from (select distinct salary  from hr.employees order by salary desc) where rownum<=5) order by salary desc) where rownum <=5;
+
+
+--7th highest sal
+select * from (select distinct salary from hr.employees where salary not in(
+select * from (select distinct salary  from hr.employees order by salary desc) where rownum<=6) order by salary desc) where rownum <=1;
+
+
+
+SELECT employee_id, last_name, job_id, salary
+
+FROM hr.employees
+
+WHERE salary < All
+
+(SELECT salary
+
+FROM  hr.employees
+
+WHERE job_id = 'IT_PROG')
+
+
+
+SELECT employee_id, last_name, job_id, salary
+
+FROM hr.employees
+
+WHERE salary < Any
+
+(SELECT salary
+
+FROM  hr.employees
+
+WHERE job_id = 'IT_PROG')
+
+SELECT employee_id, job_id FROM hr.employees;
+
+SELECT employee_id, job_id FROM  hr.job_history;
+
+Set Operators:
+select employee_id from hr.employees
+union
+select employee_id from hr.employees where manager_id is null
+
+select employee_id from hr.employees
+union all
+select employee_id from hr.employees where manager_id is null
+
+select employee_id from hr.employees
+intersect
+select employee_id from hr.employees where manager_id is null
+
+select employee_id from hr.employees
+minus
+select employee_id from hr.employees where manager_id is null
+
+
+Create table Orders(
+order_id number(20) primary key,
+customer_id number(10),
+order_date date,
+amount number(20) not null
+)
+
+Create table customers(
+cust_id number(10) primary key,
+cust_name varchar2(20),
+cust_mail varchar2(20) unique
+)
+
+
+Alter table customers add phone number(10)
+
+insert into customers values(1,'Alan','a@a.com',7980900090);
+
+insert into customers(cust_id,cust_name,phone) values(2,'john',7980900090);
+
+
+
+
+
+
+

@@ -1,0 +1,89 @@
+--select * from hr.employees;
+--find avg salary of employees under each department
+--select avg(salary),department_id from hr.employees group by department_id;
+-- find avg salary of employees under each deparment and each job id within the department
+--group by with more than one column - first group by department and again within the department group by job id
+--select avg(salary),department_id,job_id from hr.employees group by department_id,job_id order by department_id desc;
+
+--find avg salary of employees under each department whose min salary>5000
+--first grouping the employers under each department and ten filter the data whose min sal >5000
+--select avg(salary),min(salary),department_id from hr.employees group by department_id having min(salary)>5000;
+
+
+-- find avg salary of all employees whose salary >5000  under each department 
+-- u are first filtering the data for employees whose sal>5000 and then grouping the data under each department
+--select avg(salary),department_id from hr.employees where salary>5000 group by department_id;
+
+SELECT COUNT(last_name) FROM hr.employees;
+
+
+
+--Get first_name, last_name, employee_id, department_id, department_name of all employers
+-- as it is natural join- it joins based on all common columns- department_id,manager_id
+--select first_name,last_name,employee_id,department_id,department_name from hr.employees
+--natural join hr.departments;
+
+
+--just join based on department_id  but not with manager_id
+--select first_name,last_name,employee_id,department_id,department_name from hr.employees
+--join hr.departments using(department_id);
+
+--select * from hr.departments;
+--select * from hr.employees;
+
+
+--Join with on clause - Inner Join
+--select e.first_name,e.last_name,e.employee_id,d.department_id,d.department_name from hr.employees e
+--join hr.departments d on e.department_id=d.department_id;
+
+
+--Left outer Join - fetch all employers and also the common rows between employee and department
+--select e.first_name,e.last_name,e.employee_id,d.department_id,d.department_name from hr.employees e
+--left outer join hr.departments d on e.department_id=d.department_id;
+
+--right outer Join - fetch all departments and also the common rows between employee and department
+--select e.first_name,e.last_name,e.employee_id,d.department_id,d.department_name from hr.employees e
+--right outer join hr.departments d on e.department_id=d.department_id;
+
+-- full outer join - all the rows from 2 tables 
+--select e.first_name,e.last_name,e.employee_id,d.department_id,d.department_name from hr.employees e
+--full outer join hr.departments d on e.department_id=d.department_id;
+
+--cross join or cartesian product
+
+--select count(*) from hr.locations;
+
+--select count(*) from hr.departments;
+
+--cross join
+--select count(*) from hr.locations cross join hr.departments;
+--select count(*) from hr.locations , hr.departments;
+
+-- find mgr name for all employers
+
+SELECT e.first_name emp, m.first_name mgr
+
+FROM hr.employees e JOIN hr.employees m
+
+ON (e.manager_id = m.employee_id);
+
+
+
+--Get firstname, deptname and city of employer
+
+select e.first_name, d.department_name, l.city from
+hr.employees e  join hr.departments d
+on  e.department_id=d.department_id
+join hr.locations l
+on d.location_id=l.location_id
+
+
+--non equi join
+SELECT e.last_name, e.salary
+
+FROM hr.employees e JOIN hr.jobs j
+
+ON e.salary 
+
+BETWEEN j.min_salary AND j.max_salary;
+ 
