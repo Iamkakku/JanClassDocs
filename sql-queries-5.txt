@@ -1,0 +1,96 @@
+--insert into customers values(4,'john','a@d.com');
+
+--id(pk-unique+notnull), name- not null and mail- unique
+--insert into customers(cust_id,cust_name)  values(2,'asha');
+
+--insert into customers(cust_id,cust_name,cust_mail)  values(4,'ben','a@c.com');
+
+--auto commit = 0;
+
+--select * from customers;
+
+--update customers set cust_name='john' where cust_id=4
+
+--delete from customers where cust_id=2;
+
+
+--commit;
+
+-- delete is a dml statement and it can be rolled back, delete can be applied on certain rows by using where clause,delete fires triggers before deleting any data
+--delete from customers;
+--rollback;
+
+-- drop and truncate are ddl statements- they cannot be rolled back, where clause cannot be applied, triggers are not fired
+
+-- truncate will delete all the data but not table structure, truncate is faster than delete as it do not cache any data
+--truncate table customers;
+
+-- drop deletes data along with table structure
+--drop table customers;
+
+--from oracle 10g after drop statement we can still get back the table
+
+--flashback table customers to before drop;
+
+--alter table customers drop column cust_mail
+
+--update customers set cust_mail=null where cust_id=4
+
+create sequence id_seq start with 1 increment by 1 maxvalue 10000;
+
+
+--select * from customers;
+
+--insert into customers values(id_seq.nextval,'john');
+
+--insert into customers values(id_seq.nextval,'ben');
+
+--insert into customers values(id_seq.nextval,'kelly');
+
+create or replace view empDetails as
+
+(select e.first_name,e.employee_id,e.department_id,l.city
+
+from hr.employees e join hr.departments d
+
+on e.department_id=d.department_id
+
+join hr.locations l
+
+on d.location_id=l.location_id)
+
+create or replace trigger seqTrigger
+before insert on customers
+for each row
+begin
+:new.cust_id:=id_seq.nextval;
+end;
+
+select * from empDetails;
+
+
+--transaction begins here
+--update customers set cust_name='eric' where cust_id=3;
+
+--update customers set cust_name='erica' where cust_id=3;
+
+--commit;
+--transaction ends
+
+
+--transaction starts
+update customers set cust_name='eric' where cust_id=3;
+
+insert into customers(cust_name) values('peter');
+
+savepoint newA;
+
+delete from customers where cust_id=3;
+
+update customers set cust_name='eric' where cust_id=2;
+
+savepoint B;
+
+rollback to newA;
+
+
