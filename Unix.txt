@@ -1,0 +1,120 @@
+Unix
+
+
+Operating System:
+
+It is a software/set of programs which helps to process user requests.
+It acts as an interface/middleware between user and hardware.
+
+OS handles system calls - read, write, exec,fork, kill....
+
+printf("hello") -- write
+
+Hardware- monitor,keyboard, harddisk etc..
+
+Different Operating Systems:
+Microsoft Windows
+Mac OSX
+Unix/linux
+
+Mobile OS's- android, ios, windows, blackberry etc.
+
+
+Tasks of OS:
+
+FileManagement
+MemoryManagement
+IO management
+Process management 
+Device management
+
+
+Unix - 
+
+We can connect to unix based OS from windows using putty in realtime
+
+***************
+pwd - represents current working directory
+ls -l - lists the files
+ls -a - lists all the files including hidden files
+cd - change to a specfic dir
+cd .. - move one dir back from current dir
+~ - reprsents home directory
+. - represents current working directory
+touch- to create a new empty file
+-another use is to update the timestamp of the files
+mkdir- to create a directory
+cat fileName- to see the content of a file
+cat > fileName- allows to redirect data entered to file with the help of redirecting symbol - '>'
+to come out of cat cmd - ctrl+d
+clear- clear all the content in shell
+
+cp- copy paste a file 
+mv- cut paste the file
+
+copy a file from home dir to curr dir
+cp ~/file1.txt .
+
+move file from a directory within curr directory  to home directory
+mv ./subDir/file.txt ~
+
+
+vi filename.txt - editor mode
+to start typing text in editor press i
+if u want to paste any content-ctrl+v
+to back to cmd mode from editor mode - 
+click esc
+type :wq
+click enter
+
+grep - to search for a word in a file
+man  cmdName- gives unix manual details about that cmd
+to come out of man cmd - type q and enter
+
+more
+less - to view the content of the files page by page or line by line
+less is more popular bcz it can scroll up and down but more can only go down
+
+sort
+-r
+-n
+-M
+
+
+space key is used to go to next page each time- when u use more or less
+-rw-rw-rw
+
+r- read
+w-write
+x- executable
+user
+system
+group
+
+chmod +x filename
+chmod -x filename
+
+head fileName.txt- first 10 lines by default
+head -noOflines fileName.txt
+
+tail fileName.txt- last 10 lines by default
+tail -noOflines fileName.txt
+
+wc
+wc -w
+wc -l
+
+| - pipe symbol combine 2 or more cmds
+
+count no of lines with certain word
+
+
+
+
+
+
+
+
+
+
+
