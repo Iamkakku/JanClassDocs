@@ -1,0 +1,211 @@
+Testing is a process, not an activity
+
+Plan  - TestPlan
+Startegy - TestStartegy
+define - TestCases - you set expected data
+execute - manually check test cases or automate the testcases - actual data
+analyze - Reports will be analyzed
+
+Unit Testing
+Integration Testing
+Acceptance Testing
+
+
+Requirement:
+It should switch on - when user clicks power button
+It should allow user to install softwares
+It should restart and shutdown as per user selection
+
+verification :
+Testing whether product is as per the requirement.
+
+are we building the product right?
+
+whitebox testing - mostly done by developers
+
+Hp company - laptop
+
+
+
+validation :
+Testing in terms of end user or client persepective.
+
+Are we building a right product?
+
+black box testing - done by testing team
+
+Functionality + security + performance - load testing, stress testing, compatibility
+
+Is it same time when he try to switch on and off several times
+Is it supporting to install any software
+Is the user able secure his system - credentials setup
+
+
+Testcases should not be exhaustive but they should be efficient
+Think about planning each testcase in a unique way- this improves test coverage
+
+Test cases:
+valid data
+Invalid data
+Boundary Values
+Security
+
+
+dataOfJourney - >= todays date
+
+Requirement:
+Srs documents/ User stories in Rally
+
+
+Search Box:
+
+It should be text box where user can enter search field
+Once he click on search button user should see search results page.
+In search results page- he should see all products as per the search keyword
+Further navigation on click of any product should take to details page.
+Sorting
+Filters
+
+
+dev Sit uat prod/live
+dev qa stage live
+dev qa1 qa2 stage live
+
+http://10.144.2323/login.html
+http://qa1.whitebox.com/login.html
+http://qa2.whitebox.com/login.html
+http://uat.whitebox.com/login.html
+http://whitebox.com/login.html
+
+
+Few things before raising defect:
+
+debug the cause of issue
+
+Issue could be at deployment level - contact build/deployment team- ask them redeploy, try deploying
+the previous build
+Issue could be at DataBase level (dev, qa, live)- data issue - DB team
+Issue could be at API level - right click, inspect the browser- opens dev tools, observe- network, console
+Check server logs(application logs) by connecting to unix
+Issue at Developer level - Raise the defect - 
+Defect details:
+steps
+test data
+environment
+logs
+screenshot
+
+TestLifeCycle:
+
+WhiteboxTesting : Testing the requirement by having knowledge on the implemented code
+BlackboxTesting : Tsting the rquirement without any knwoledge on how code is implemented.
+GreyBoxTesting : having partial knowledge on the code and testing it.
+
+
+Test Levels:
+UnitTesting - developers  write unit testcases /whitebox testing
+IntegrationTesting - done by developer in dev env and tester in test env
+SystemTesting- done by tester
+UserAcceptanceTesting-- done by tester
+
+Calculator{
+int add(int a, int b){
+return a+b;
+}
+int sub(int a, int b){
+return a-b;
+}
+int mul(int a, int b){
+return a*b;
+}
+int div(int a, int b){
+return a/b;
+}
+}
+
+add - 
+40, 50 - 90
+-8,9   
+4.5, 6.7
+'a', 'b'
+0,0
+-7,-8
+//Write a program to test a program by complete knowledge on code - Unit Testing
+TestCalculator{
+int addTest1(){
+expected=40;
+result = Calculator.add(40,50);//actual result
+if(expected==actual){
+print(test passed)
+}
+}
+int addTest2(){
+result = Calculator.add(0,50);//actual result
+if(expected==actual){
+print(test passed)
+}
+}
+int addTest3(){
+result = Calculator.add(-5,-6);//actual result
+if(expected==actual){
+print(test passed)
+}
+}
+
+}
+
+System Testing
+Types Of Testing:
+
+Functionality
+Performance:
+Stress test - find breaking point 
+load test- send concurrent user requests and observer response time- entire time taken to get response, 
+latency-time traken to get first byte of response, throughput - no of requests servred in given time
+good performance- throughput should be high , latency & response time should be low
+volume test - database level - query performance  w.r.to 10 users or 1000 users is same or not
+Usability
+Security- Application should prevent hacking techniques:
+Authentication
+Authorisation - role based permissions
+SQL Injection
+CrossSiteScripting
+DDOS 
+for(int i=1; i<10000; i++){
+//logic to register with amazon by changing user id or mail dynamically
+//logic to login with amazon 
+}
+https://www.owasp.org/index.php/Main_Page
+
+Accessibility : ADA COMPLIANCE , text to speech, html modern tags..
+
+Localization :
+
+internationalization:
+
+Usability: look and feel
+clicks, scrolling, page navigations, font size, font color
+images, infinite scrolling, buttons, text boxes, tables, dropdowns,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
