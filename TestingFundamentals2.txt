@@ -1,0 +1,34 @@
+void procedure(int a, int b, int x)
+2,0,6
+{
+
+If (a>1) && (b==0)
+
+{
+
+x=x/a;
+
+}
+
+If (a==2 || x>1)
+
+{ x=x+1;}
+
+}
+
+a,b,x - 2,0,6
+a,b,x - 2,0,6
+
+3,0,10
+
+-1,2,1
+
+4 conditions
+2 decisions
+2 statements
+
+
+
+--calling the method with different input parameters
+procedure(2,0,6)
+if(expeted==equal)
