@@ -164,9 +164,15 @@ load test- send concurrent user requests and observer response time- entire time
 latency-time traken to get first byte of response, throughput - no of requests servred in given time
 good performance- throughput should be high , latency & response time should be low
 volume test - database level - query performance  w.r.to 10 users or 1000 users is same or not
-Usability
+Usability- menus, dropdowns, paginations, breadcrumbs, infinite scrolling, ajax elemnts, check boxes, radio buttons, links...
 Security- Application should prevent hacking techniques:
-Authentication
+Authentication:
+login credentials
+One time password
+captcha images:
+6vXyz
+click on all the street signs
+
 Authorisation - role based permissions
 SQL Injection
 CrossSiteScripting
@@ -186,6 +192,89 @@ internationalization:
 Usability: look and feel
 clicks, scrolling, page navigations, font size, font color
 images, infinite scrolling, buttons, text boxes, tables, dropdowns,
+
+Compatibility:
+
+browsers - mozilla, chrome, ie, safari
+operating systems- windows, mac, linux/unix
+
+configuration
+
+installation
+
+
+*******************
+
+Regression Testing : Testing the already tested software whenever a defect fix or 
+enhancement occurs.
+
+Make sure that defect/enhancement did not break already working software.
+
+
+Retesting: Testig the defect fix
+
+*******
+
+Smoke test cases - priority  or mandatory test cases 
+Functional Test cases - all the possible test cases for given requirement
+Regression Test cases - important functionality test cases
+
+
+******
+
+kayak.com- smoke, functional, regression test cases
+
+SmokeTestCases:
+
+***
+uat - Test from end user perspective and people who represent end client do user acceptance testing.
+
+alpha testing - Releasing the product within the company(microsoft release new windows version within their employers) and
+take feedback from team to correct  any issues.
+beta testing - Releasing the product to end users and take feedback from end users to correct any issues.
+
+
+Blackbox testing techniques:
+EquivalencePartitioning - 
+
+User registration:
+
+registration date
+
+2-9-2017
+
+Invalid - < todays date - 2-3  invalid 
+valid - > todays date - 2-3 valid
+= todays date
+
+10 users  per booking
+min 1 user
+
+valid - 1-10 - valid - 2,3,5
+invalid - <1 and >10 - invalid - 11,12,0
+
+BoundaryValue Analysis -
+testing the ranges at exact limit points
+1-10 - valid
+<1, >10- invalid
+
+=1 and =10
+
+
+
+Decision making graph-
+
+10% discount for users who registers in feb month
+
+prime users - 12%
+
+valuable customers - 15%
+
+
+
+
+
+
 
 
 
